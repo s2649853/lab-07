@@ -24,7 +24,13 @@ evals<-read.csv("data/evals.csv", row.names=1)
 1.  Visualize the distribution of `score` in the dataframe `evals`.
 
 ```{r viz-score}
-# add code here
+ggplot(evals, aes(x = score)) +
+  geom_histogram(binwidth = 0.2, fill = "skyblue", color = "black") +
+  theme_minimal() +
+  labs(title = "Distribution of Course Evaluation Scores",
+       x = "Score",
+       y = "Count")
+summary(evals$score)
 ```
 
 *Add your other details and narratives here.*
@@ -32,7 +38,12 @@ evals<-read.csv("data/evals.csv", row.names=1)
 2.  Visualize and describe the relationship between `score` and `bty_avg` using `geom_point()` to represent the data. 
 
 ```{r scatterplot}
-# add code here
+ggplot(evals, aes(x = bty_avg, y = score)) +
+  geom_point(color = "blue") +
+  theme_minimal() +
+  labs(title = "Scatter Plot of Evaluation Score vs. Beauty Average",
+       x = "Beauty Average (bty_avg)",
+       y = "Evaluation Score")
 ```
 
 *Add your narrative and other details here.*
